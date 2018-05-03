@@ -40,37 +40,56 @@ $show_complete_tasks = rand(0, 1);
                 </div>
             </div>
         </header>
-
+<?php 
+$projects=['Все','Входящие','Учеба','Работа','Домашние дела','Авто'];
+$tasks = [
+    ['task' => 'Собеседование в IT компании',
+     'date' => '01.06.2018',
+     'category' => 'Работа',
+     'completed' => false
+     ],
+    ['task' => 'Выполнить тестовое задание',
+     'date' => '25.05.2018',
+     'category' => 'Работа',
+     'completed' => false
+     ],
+    ['task' => 'Сделать задание первого раздела',
+     'date' => '21.04.2018',
+     'category' => 'Учеба',
+     'completed' => true
+     ],
+    ['task' => 'Встреча с другом',
+     'date' => '22.04.2018',
+     'category' => 'Входящие',
+     'completed' => false
+     ],
+    ['task' => 'Купить корм для кота',
+     'date' => 'Нет',
+     'category' => 'Домашние дела',
+     'completed' => false
+     ], 
+    ['task' => 'Заказать пиццу',
+     'date' => 'Нет',
+     'category' => 'Домашние дела',
+     'completed' => false
+     ], 
+    ];
+?>
         <div class="content">
             <section class="content__side">
                 <h2 class="content__side-heading">Проекты</h2>
 
                 <nav class="main-navigation">
                     <ul class="main-navigation__list">
-                        <li class="main-navigation__list-item">
-                            <a class="main-navigation__list-item-link" href="#">Входящие</a>
+                        <?php foreach ($projects as $index => $item): ?>
+                         <li <?php if ($index == 0): ?> class="main-navigation__list-item main-navigation__list-item--active">
+                             <?php elseif ($index > 0): ?> class="main-navigation__list-item">      
+                             <?php endif; ?>              
+                            <a class="main-navigation__list-item-link" href="#"><?=$item?></a>
                             <span class="main-navigation__list-item-count">24</span>
                         </li>
-
-                        <li class="main-navigation__list-item main-navigation__list-item--active">
-                            <a class="main-navigation__list-item-link" href="#">Работа</a>
-                            <span class="main-navigation__list-item-count">12</span>
-                        </li>
-
-                        <li class="main-navigation__list-item">
-                            <a class="main-navigation__list-item-link" href="#">Здоровье</a>
-                            <span class="main-navigation__list-item-count">3</span>
-                        </li>
-
-                        <li class="main-navigation__list-item">
-                            <a class="main-navigation__list-item-link" href="#">Домашние дела</a>
-                            <span class="main-navigation__list-item-count">7</span>
-                        </li>
-
-                        <li class="main-navigation__list-item">
-                            <a class="main-navigation__list-item-link" href="#">Авто</a>
-                            <span class="main-navigation__list-item-count">0</span>
-                        </li>
+                        <?php endforeach; ?>
+                        
                     </ul>
                 </nav>
 
@@ -106,20 +125,30 @@ $show_complete_tasks = rand(0, 1);
                 </div>
 
                 <table class="tasks">
+                    
+                    <?php foreach($tasks as $index => $block):  ?>
+                    
+                        
                     <tr class="tasks__item task">
+                        
                         <td class="task__select">
                             <label class="checkbox task__checkbox">
                                 <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1">
-                                <span class="checkbox__text">Сделать главную страницу Дела в порядке</span>
+                                <span class="checkbox__text"><?=$block['task']?></span>
                             </label>
                         </td>
 
                         <td class="task__file">
-                            <a class="download-link" href="#">Home.psd</a>
+                            <a class="download-link" href="#"><?=$block['date']?></a>
                         </td>
 
                         <td class="task__date"></td>
-                    </tr>
+                     </tr>
+                          
+                    
+                            
+                        <?php endforeach; ?>
+                    
                     <!--показывать следующий тег <tr/>, если переменная $show_complete_tasks равна единице-->
 		    <?php if ($show_complete_tasks == 1): ?>
                        <tr class="tasks__item task task--completed">
