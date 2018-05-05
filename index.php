@@ -75,6 +75,24 @@ $tasks = [
      ], 
     ];
 ?>
+    <?php 
+    function sum_cat($massive, $ct) {
+    $SI=0;
+        foreach($massive as $index => $block){
+        if ($block['category'] == $ct){
+        $SI=$SI+1;
+       //echo $SI; 
+    }}
+    if ($SI == null){
+    foreach($massive as $index => $block){
+    if($ct == 'Все')
+        {$SI=$SI+1;}
+     else{$SI=0;}     
+      }} 
+      return $SI;
+    }
+      ?>   
+        
         <div class="content">
             <section class="content__side">
                 <h2 class="content__side-heading">Проекты</h2>
@@ -86,7 +104,7 @@ $tasks = [
                              <?php elseif ($index > 0): ?> class="main-navigation__list-item">      
                              <?php endif; ?>              
                             <a class="main-navigation__list-item-link" href="#"><?=$item?></a>
-                            <span class="main-navigation__list-item-count">24</span>
+                            <span class="main-navigation__list-item-count"><?=sum_cat($tasks, $item)?></span>
                         </li>
                         <?php endforeach; ?>
                         
