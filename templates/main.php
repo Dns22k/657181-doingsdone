@@ -32,7 +32,11 @@ $show_complete_tasks = rand(0, 1);
                 <table class="tasks">
 
                     <?php foreach($tasks as $index => $block):  ?>
-                    <?php $yet= hours_btw($block['date'])?>
+                    <?php $yet= hours_btw($block['date']);
+                     if ($yet < 24){
+                      $class = 'checkbox__text task--important';   
+                     }  {$class = 'checkbox__text';}     
+                            ?>
 
                     <tr class="tasks__item task">
                       
@@ -40,9 +44,7 @@ $show_complete_tasks = rand(0, 1);
                             <label class="checkbox task__checkbox">
                                                            
                                 <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1">
-                                <span <?php if ($yet > 24): ?> class="checkbox__text"><?php echo $block['task']?>
-                                <?php elseif ($yet < 24): ?> class="checkbox__text task--important"><?php echo $block['task'] ?>
-                                <?php endif;?>
+                                <span class="<?=$class?>"><?php echo $block['task']?>
                                 </span>
                             
                             </label>

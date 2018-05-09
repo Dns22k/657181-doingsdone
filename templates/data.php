@@ -7,7 +7,7 @@ $tasks = [
      'completed' => false
      ],
     ['task' => 'Выполнить тестовое задание',
-     'date' => '09.05.2018',
+     'date' => '10.05.2018',
      'category' => 'Работа',
      'completed' => false
      ],
