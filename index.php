@@ -11,7 +11,7 @@ ini_set('display_errors','On');
 include 'functions.php';
 include 'templates/data.php';
 $main = shablonizator('main', array('tasks'=>$tasks));
-echo shablonizator('layout', array('title'=>'Дела в порядке!!!','projects'=>$projects,'tasks'=>$tasks,'main'=>$main));
+echo shablonizator('layout', array('title'=>'Дела в порядке','projects'=>$projects,'tasks'=>$tasks,'main'=>$main));
 
 
 

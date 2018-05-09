@@ -27,4 +27,15 @@ function sum_cat($massive, $ct) {
       }} 
       return $SI;
     }
-?>
+
+function hours_btw($udate)
+{date_default_timezone_set("Europe/Moscow");
+
+$btw=strtotime($udate) - time();
+$hours = abs(floor($btw/3600));
+return $hours;
+
+}   
+    
+  
+
