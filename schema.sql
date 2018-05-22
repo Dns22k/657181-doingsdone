@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS Tasks (
  file_path varchar(128),
  project_id INT,
  user_id INT,
-  PRIMARY KEY (id)
+ PRIMARY KEY (id)
 )DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS Users (
@@ -36,5 +36,6 @@ CREATE INDEX project_id_tasks on Tasks(project_id);
 CREATE INDEX user_id_tasks on Tasks(user_id);
 CREATE INDEX users_name_users on Users(name);
 CREATE INDEX users_email_users on Users(email);
+
 
 
