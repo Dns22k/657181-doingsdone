@@ -32,7 +32,7 @@ $show_complete_tasks = rand(0, 1);
                 <table class="tasks">
 
                     <?php foreach($tasks as $index => $block):  ?>
-                    <?php $yet= hours_btw($block['date']);
+                    <?php $yet= hours_btw($block['date_alarm']);
                      if ($yet < 24){
                      $class = 'tasks__item task task--important'; }  
                      else  {$class = 'tasks__item task';}     
@@ -44,14 +44,14 @@ $show_complete_tasks = rand(0, 1);
                             <label class="checkbox task__checkbox">
                                                            
                                 <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1">
-                                <span class="checkbox__text"><?php echo $block['task']?>
+                                <span class="checkbox__text"><?php echo $block['name_task']?>
                                 </span>
                             
                             </label>
                         </td>
 
                         <td class="task__file">
-                            <a class="download-link" href="#"><?php echo $block['date']?></a>
+                            <a class="download-link" href="#"><?php echo $block['date_alarm']?></a>
                       </td>
 
                         <td class="task__date"></td>

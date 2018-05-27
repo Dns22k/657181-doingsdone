@@ -12,11 +12,11 @@ extract($vars);
 require 'templates/'.$templ.'.php';
 return ob_get_clean();
 }}  
-
+//Сумма категорий
 function sum_cat($massive, $ct) {
     $SI=0;
         foreach($massive as $index => $block){
-        if ($block['category'] == $ct){
+        if ($block['name_project'] == $ct){
         $SI=$SI+1;
     }}
     if ($SI == null){
@@ -27,7 +27,7 @@ function sum_cat($massive, $ct) {
       }} 
       return $SI;
     }
-
+//Склько часов до даты
 function hours_btw($udate)
 {date_default_timezone_set("Europe/Moscow");
 

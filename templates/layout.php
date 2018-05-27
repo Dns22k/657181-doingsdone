@@ -44,12 +44,12 @@
 
                 <nav class="main-navigation">
                     <ul class="main-navigation__list">
-                        <?php foreach ($projects as $index => $item): ?>
+                       <?php foreach ($projects as $index => $item): ?>
                          <li <?php if ($index == 0): ?> class="main-navigation__list-item main-navigation__list-item--active">
                              <?php elseif ($index > 0): ?> class="main-navigation__list-item">      
                              <?php endif; ?>              
-                            <a class="main-navigation__list-item-link" href="#"><?=$item?></a>
-                            <span class="main-navigation__list-item-count"><?=sum_cat($tasks, $item)?></span>
+                            <a class="main-navigation__list-item-link" href="#"><?=$item['name_project']?></a>
+                            <span class="main-navigation__list-item-count"><?=sum_cat($tasks, $item['name_project'])?></span>
                         </li>
                         <?php endforeach; ?>
                         
